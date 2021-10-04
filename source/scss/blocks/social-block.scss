@@ -138,13 +138,26 @@
   }
 
   .social-block--active & {
-    opacity: 1;
     pointer-events: auto;
+
+    li {
+      opacity: 1;
+      transform: translateY(0);
+
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+          transition: 0.2s 0.1s * $i all ease-out;
+        }
+      }
+    }
   }
 
   li {
     flex: none;
     margin-bottom: 0.5rem;
+    opacity: 0;
+    transition: none;
+    transform: translateY(10px);
 
     @media (min-width: $stop-scaling) {
       margin-bottom: 5px;
