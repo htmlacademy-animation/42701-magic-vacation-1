@@ -3685,10 +3685,13 @@ img {
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  transform: translateX(20px);
   opacity: 0;
 }
 .swiper-slide-active .slider__item-text, .swiper-slide-next .slider__item-text {
-  animation: fadeInToLeft 0.5s 0.2s forwards ease;
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 0.3s 0.2s ease, opacity 0.3s 0.2s ease;
 }
 @media (min-width: 2000px) {
   .slider__item-text {
@@ -3904,6 +3907,7 @@ img {
   height: 4rem;
   color: #5f458c;
   border-radius: 50%;
+  transition: color 0.2s ease;
 }
 .social-block__toggler:focus {
   outline: none;
@@ -3930,6 +3934,7 @@ img {
   background-color: #ffffff;
   border: 2px solid #ffffff;
   z-index: -1;
+  transition: width 0.2s ease, height 0.2s ease;
 }
 .social-block__toggler svg {
   position: absolute;
@@ -3940,10 +3945,10 @@ img {
   width: 2.3rem;
   height: 2.2rem;
 }
-.social-block__toggler:hover, .social-block--active .social-block__toggler {
+.social-block:hover .social-block__toggler, .social-block__toggler:hover {
   color: #a67ee5;
 }
-.social-block__toggler:hover::before, .social-block--active .social-block__toggler::before {
+.social-block:hover .social-block__toggler::before, .social-block__toggler:hover::before {
   width: 112.5%;
   height: 112.5%;
 }
