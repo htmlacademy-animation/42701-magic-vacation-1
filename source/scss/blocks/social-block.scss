@@ -17,6 +17,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: color .2s ease;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +36,9 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition:
+      width .2s ease,
+      height .2s ease;
   }
 
   svg {
@@ -44,8 +48,8 @@
     height: 2.2rem;
   }
 
-  &:hover,
-  .social-block--active & {
+  .social-block:hover &,
+  &:hover {
     color: $c-purple;
 
     &::before {
