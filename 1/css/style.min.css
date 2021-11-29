@@ -1002,34 +1002,6 @@ img {
   overflow: hidden;
 }
 
-@keyframes fadeInToTop {
-  from {
-    transform: translateY(10px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes fadeInToLeft {
-  from {
-    transform: translateX(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes grow {
-  from {
-    flex-grow: 0;
-  }
-  to {
-    flex-grow: 1;
-  }
-}
 .animation-screen {
   position: fixed;
   display: flex;
@@ -1489,9 +1461,12 @@ img {
   border: 0;
   border-radius: 3rem;
   outline: none;
+  transition: all 0.3s ease;
+  flex-basis: 0;
   width: 0;
-  flex-grow: 0;
-  animation: grow 0.4s ease forwards;
+}
+.active .form__field {
+  flex-grow: 1;
 }
 .form__field:focus {
   border: 1px solid #a67ee5;
@@ -1501,7 +1476,6 @@ img {
     margin-right: 30px;
     padding: 0 56px;
     height: 60px;
-    width: calc(100% - 210px);
     font-size: 24px;
     border-radius: 30px;
   }
@@ -1510,30 +1484,19 @@ img {
   .form__field {
     margin-right: 1rem;
     padding: 0 2.5rem;
-    width: calc(100% - 5rem);
     height: 4rem;
     font-size: 1.6rem;
-  }
-}
-@media (max-width: 1024px) and (orientation: landscape) {
-  .form__field {
-    width: calc(100% - 9rem);
   }
 }
 @media (max-width: 768px) and (orientation: landscape) {
   .form__field {
     margin-right: 1rem;
     padding: 0 2.5rem;
-    width: calc(100% - 5rem);
     height: 4rem;
     font-size: 1.6rem;
   }
 }
 
-.form__button {
-  flex-basis: 18rem;
-  flex-shrink: 0;
-}
 @media (orientation: portrait) {
   .form__button {
     position: relative;
@@ -1857,8 +1820,13 @@ img {
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.27;
+  transform: translateY(10px);
   opacity: 0;
-  animation: fadeInToTop 0.5s 0.2s forwards ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.active .intro__message {
+  transform: translateY(0);
+  opacity: 1;
 }
 @media (min-width: 2000px) {
   .intro__message {
