@@ -17,6 +17,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: color .2s ease;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +36,9 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition:
+      width .2s ease,
+      height .2s ease;
   }
 
   svg {
@@ -44,8 +48,8 @@
     height: 2.2rem;
   }
 
-  &:hover,
-  .social-block--active & {
+  .social-block:hover &,
+  &:hover {
     color: $c-purple;
 
     &::before {
@@ -138,13 +142,26 @@
   }
 
   .social-block--active & {
-    opacity: 1;
     pointer-events: auto;
+
+    li {
+      opacity: 1;
+      transform: translateY(0);
+
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+          transition: 0.2s 0.1s * $i all ease-out;
+        }
+      }
+    }
   }
 
   li {
     flex: none;
     margin-bottom: 0.5rem;
+    opacity: 0;
+    transition: none;
+    transform: translateY(10px);
 
     @media (min-width: $stop-scaling) {
       margin-bottom: 5px;
