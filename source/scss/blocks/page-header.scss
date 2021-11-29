@@ -5,6 +5,12 @@
   right: 0;
   padding: 2.7rem 0;
   z-index: 10;
+  opacity: 0;
+  transition: opacity .5s var(--init-func);
+
+  @include on-page-load {
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     padding: 27px 0;
@@ -35,6 +41,12 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  transition: transform .5s ease;
+  transform: translateX(-20px);
+
+  @include on-page-load {
+    transform: translateX(0);
+  }
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -265,7 +277,16 @@
       }
     }
 
-    &.active,
+    @include on-page-load {
+      &.active {
+        &::after {
+          width: 100%;
+          right: auto;
+          left: 0;
+        }
+      }
+    }
+
     &:hover {
       &::after {
         width: 100%;

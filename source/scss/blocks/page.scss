@@ -1,0 +1,10 @@
+:root {
+  --init-func: cubic-bezier(.37,.56,.23,.98);
+  --over-head-func: cubic-bezier(.67,.53,.52,1.68);
+}
+
+@mixin on-page-load {
+  .page-load & {
+    @content;
+  }
+}
