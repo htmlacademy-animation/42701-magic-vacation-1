@@ -1,13 +1,47 @@
+@mixin on-story-hide {
+  .screen--hidden.screen--story & {
+    @content;
+  }
+}
+
+@mixin on-story-active {
+  .screen--story:not(.screen--hidden) & {
+    @content;
+  }
+}
+
+@mixin el-hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@mixin el-show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .screen {
-  position: relative;
-  display: flex;
   flex-direction: column;
   min-height: 100vh;
-  z-index: 1;
+  display: flex;
   overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
 
-  &--hidden {
-    display: none;
+  @include el-show;
+
+  &.screen--hidden {
+    @include el-hide;
+
+    .screen__disclaimer,
+    .screen__footer,
+    .screen__wrapper {
+      @include el-hide;
+    }
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -30,28 +64,24 @@
   z-index: 1;
 }
 
-.screen__disclaimer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
-
+.screen__disclaimer,
 .screen__footer {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  color: $c-dark;
-  background-color: $c-light;
-  z-index: 1;
+  z-index: 3;
   transform: translateY(100%);
   transition: transform .5s var(--init-func);
 
   @include on-page-load {
     transform: translateY(0);
   }
+}
+
+.screen__footer {
+  color: $c-dark;
+  background-color: $c-light;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
@@ -300,6 +330,31 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  transition: opacity .5s ease;
+
+  &::before {
+    opacity: 1;
+    content: '';
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: $c-dark;
+    transform: translateY(100%);
+    transition: transform .3s ease;
+    pointer-events: none;
+  }
+
+  &.screen--hidden::before {
+    transform: translateY(0);
+  }
+
+  &.active::before {
+    opacity: 0;
+    transition: none;
+  }
 
   @media (orientation: portrait) {
     background-size: auto calc(100vh - 13.8rem), 100% 25rem;
@@ -307,8 +362,27 @@
   }
 }
 
+.screen--after-story {
+  .screen__wrapper {
+    transition: opacity .5s .3s ease;
+  }
+
+  .screen__disclaimer,
+  .screen__footer {
+    transform: translateY(100%);
+    transition: none;
+  }
+
+  &.active {
+    .screen__disclaimer,
+    .screen__footer {
+      transform: translateY(0);
+      transition: transform .3s .2s ease;
+    }
+  }
+}
+
 .screen--prizes {
-  background-color: $c-dark;
 }
 
 .screen--game {
