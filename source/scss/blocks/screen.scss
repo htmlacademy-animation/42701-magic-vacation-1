@@ -331,6 +331,7 @@
   background-size: cover;
   background-position: center;
   transition: opacity .5s ease;
+  z-index: 4;
 
   &::before {
     opacity: 1;
@@ -362,7 +363,9 @@
   }
 }
 
-.screen--after-story {
+.screen--story + .screen--after-story {
+  z-index: 3;
+
   .screen__wrapper {
     transition: opacity .5s .3s ease;
   }
@@ -380,9 +383,6 @@
       transition: transform .3s .2s ease;
     }
   }
-}
-
-.screen--prizes {
 }
 
 .screen--game {
@@ -431,6 +431,9 @@
   }
 }
 
-.screen--rules {
+.screen--prizes,
+.screen--rules,
+.screen--game,
+.screen--intro {
   background-color: $c-dark;
 }
