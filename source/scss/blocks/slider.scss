@@ -108,6 +108,19 @@
       opacity .3s .2s ease;
   }
 
+  @include on-story-hide {
+    transition-delay: 0s;
+    transform: translateY(10px) scale(.9);
+    opacity: 0;
+    transform-origin: right;
+  }
+
+  .swiper-slide-next & {
+    @include on-story-hide {
+      transform-origin: left;
+    }
+  }
+
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
     max-width: 340px;
