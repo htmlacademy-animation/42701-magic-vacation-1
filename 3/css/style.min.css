@@ -3530,6 +3530,7 @@ img {
   background-size: cover;
   background-position: center;
   transition: opacity 0.5s ease;
+  z-index: 4;
 }
 .screen--story::before {
   opacity: 1;
@@ -3559,16 +3560,19 @@ img {
   }
 }
 
-.screen--after-story .screen__wrapper {
+.screen--story + .screen--after-story {
+  z-index: 3;
+}
+.screen--story + .screen--after-story .screen__wrapper {
   transition: opacity 0.5s 0.3s ease;
 }
-.screen--after-story .screen__disclaimer,
-.screen--after-story .screen__footer {
+.screen--story + .screen--after-story .screen__disclaimer,
+.screen--story + .screen--after-story .screen__footer {
   transform: translateY(100%);
   transition: none;
 }
-.screen--after-story.active .screen__disclaimer,
-.screen--after-story.active .screen__footer {
+.screen--story + .screen--after-story.active .screen__disclaimer,
+.screen--story + .screen--after-story.active .screen__footer {
   transform: translateY(0);
   transition: transform 0.3s 0.2s ease;
 }
@@ -3620,7 +3624,10 @@ img {
   pointer-events: auto;
 }
 
-.screen--rules {
+.screen--prizes,
+.screen--rules,
+.screen--game,
+.screen--intro {
   background-color: #5f458c;
 }
 
