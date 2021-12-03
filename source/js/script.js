@@ -1,5 +1,5 @@
 // modules
-import pageInit from './modules/page-init'
+import pageInit from './modules/page-init';
 import mobileHeight from './modules/mobile-height-adjust.js';
 import slider from './modules/slider.js';
 import menu from './modules/menu.js';
@@ -9,6 +9,7 @@ import result from './modules/result.js';
 import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
+import animTextAppearance from './modules/anim-text-appearance';
 
 // init modules
 pageInit();
@@ -20,6 +21,8 @@ chat();
 result();
 form();
 social();
+
+animTextAppearance();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();

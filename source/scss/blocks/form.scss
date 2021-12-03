@@ -43,12 +43,21 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
-  transition: all .3s ease;
+  transition: flex-grow .3s ease;
   flex-basis: 0;
   width: 0;
 
+  &::placeholder {
+    transition: color .3s ease .3s;
+    color: transparent;
+  }
+
   .active & {
     flex-grow: 1;
+
+    &::placeholder {
+      color: rgb(117, 117, 117);
+    }
   }
 
   &:focus {
@@ -82,6 +91,17 @@
 }
 
 .form__button {
+  opacity: 0;
+  color: transparent;
+  transition:
+    opacity .3s ease,
+    color .3s ease .2s;
+
+  .active & {
+    opacity: 1;
+    color: $c-dark;
+  }
+
   @media (orientation: portrait) {
     position: relative;
     flex: none;
