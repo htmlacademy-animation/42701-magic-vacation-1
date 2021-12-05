@@ -14,7 +14,7 @@ export default () => {
 
     const elWords = element.textContent
       .trim()
-      .split(/\s/g)
+      .split(/(?<=[a-zA-Zа-яА-Я])\s+/g)
       .map((word, id) => {
         const wordContainer = document.createElement(`span`);
         wordContainer.classList.add(`anim-text__word`);

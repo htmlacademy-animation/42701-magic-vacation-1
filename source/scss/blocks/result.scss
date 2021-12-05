@@ -124,7 +124,7 @@
 
     .active & {
       img {
-        animation: right-shacking forwards 2s ease-in-out 100ms;
+        animation: right-shacking forwards 2s ease-in-out .2s;
       }
     }
   }
@@ -137,15 +137,13 @@
     top: calc(50% + 50px);
     transition: opacity .3s ease;
 
-    //@include get-shaking(right-shacking, 350deg);
-
     img {
       transform-origin: left bottom;
     }
 
     .active & {
       img {
-        animation: right-shacking forwards 2s ease-in-out;
+        animation: right-shacking forwards 2s ease-in-out  .15s;
       }
     }
   }
@@ -165,7 +163,7 @@
 
     .active & {
       img {
-        animation: left-shacking forwards 2s ease-in-out .1s;
+        animation: left-shacking forwards 2s ease-in-out .15s;
       }
     }
   }
