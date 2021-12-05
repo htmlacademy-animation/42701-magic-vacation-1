@@ -2765,7 +2765,7 @@ img {
   transform-origin: left bottom;
 }
 .active .result__pick--leaf-green img {
-  animation: right-shacking forwards 2s ease-in-out 100ms;
+  animation: right-shacking forwards 2s ease-in-out 0.2s;
 }
 .result__pick--leaf-blue-right {
   z-index: 2;
@@ -2779,7 +2779,7 @@ img {
   transform-origin: left bottom;
 }
 .active .result__pick--leaf-blue-right img {
-  animation: right-shacking forwards 2s ease-in-out;
+  animation: right-shacking forwards 2s ease-in-out 0.15s;
 }
 .result__pick--leaf-blue-left {
   z-index: 1;
@@ -2815,7 +2815,7 @@ img {
   transform-origin: right bottom;
 }
 .active .result__pick--leaf-blue-left img {
-  animation: left-shacking forwards 2s ease-in-out 0.1s;
+  animation: left-shacking forwards 2s ease-in-out 0.15s;
 }
 
 .result__title {
@@ -4386,6 +4386,11 @@ img {
     width: 10px;
     height: 10px;
   }
+}
+
+.anim-text {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .anim-text__word {
