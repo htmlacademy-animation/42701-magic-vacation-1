@@ -34,6 +34,11 @@
   align-items: center;
   z-index: -1;
 
+  img {
+    object-fit: cover;
+    object-position: center;
+  }
+
   @media (orientation: portrait) {
     left: -1rem;
     right: -1rem;
@@ -43,14 +48,124 @@
     display: block;
     width: 100%;
     height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
+}
+
+.result__pick  {
+  max-width: 300px;
+  max-height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 
   img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    opacity: 0;
+    transition: all .3s ease;
+  }
+
+  &--flamingo {
+    z-index: 5;
+    left: calc(50% - 135px);
+    top: calc(50% + 143px);
+    max-width: 310px;
+    max-height: 310px;
+    transform: translate(-50%, calc(50% - 200px)) rotate(335deg);
+    transition:
+      opacity .5s ease,
+      transform .5s ease;
+
+    .active & {
+      transform: translate(-50%, -50%) rotate(360deg);
+      animation: flamingo-shaking 1.5s infinite .5s ease-in-out;
+
+      img {
+        opacity: 1;
+      }
+    }
+  }
+
+  &--suitcase {
+    z-index: 4;
+    max-width: 420px;
+    max-height: 420px;
+    left: calc(50% - 40px);
+    top: calc(50% + 100px);
+    transform: translate(calc(-50% + 10px), calc(-50% + 350px)) scale(0);
+    transition: transform .5s cubic-bezier(.5,.51,.04,1.23);
+
+    .active & {
+      transform: translate(-50%, -50%);
+
+      img {
+        opacity: 1;
+      }
+    }
+  }
+
+  @include get-shaking(right-shacking, 350deg);
+
+  &--leaf-green {
+    z-index: 3;
+    max-width: initial;
+    max-height: initial;
+    left: calc(50% + 181px);
+    top: calc(50% + 147px);
+
+
+    img {
+      transform-origin: left bottom;
+    }
+
+    .active & {
+      img {
+        animation: right-shacking forwards 2s ease-in-out .2s;
+      }
+    }
+  }
+
+  &--leaf-blue-right {
+    z-index: 2;
+    max-width: initial;
+    max-height: initial;
+    left: calc(50% + 138px);
+    top: calc(50% + 50px);
+    transition: opacity .3s ease;
+
+    img {
+      transform-origin: left bottom;
+    }
+
+    .active & {
+      img {
+        animation: right-shacking forwards 2s ease-in-out  .15s;
+      }
+    }
+  }
+
+  &--leaf-blue-left {
+    z-index: 1;
+    max-width: initial;
+    max-height: initial;
+    left: calc(50% - 223px);
+    top: calc(50% + 150px);
+
+    @include get-shaking(left-shacking, 10deg);
+
+    img {
+      transform-origin: right bottom;
+    }
+
+    .active & {
+      img {
+        animation: left-shacking forwards 2s ease-in-out .15s;
+      }
+    }
   }
 }
 

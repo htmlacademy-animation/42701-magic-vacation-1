@@ -1,0 +1,27 @@
+.anim-text {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.anim-text__word {
+  display: flex;
+  overflow: hidden;
+  padding-top: 1em;
+  margin-top: -1em;
+
+  &:not(:last-child) {
+    &::after {
+      content: ' ';
+    }
+  }
+}
+
+.anim-text__char {
+  transition: transform .7s ease;
+  transform: translate3d(0, 1.2em, 0);
+  display: inline-block;
+
+  .active & {
+    transform: translate3d(0, 0, 0);
+  }
+}

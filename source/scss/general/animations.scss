@@ -1,0 +1,44 @@
+@mixin get-shaking ($name, $end-position) {
+  @keyframes #{$name} {
+    0% {
+      opacity: 0;
+      transform: rotate($end-position - 30deg);
+    }
+
+    14% {
+      opacity: 1;
+      transform: rotate($end-position + 5deg);
+    }
+
+    35% {
+      transform: rotate($end-position - 10deg);
+    }
+
+    56% {
+      transform: rotate($end-position + 2deg);
+    }
+
+    77% {
+      transform: rotate($end-position - 2deg);
+    }
+
+    100% {
+      transform: rotate($end-position);
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes flamingo-shaking {
+  from {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+
+  50% {
+    transform: translate(-50%, calc(-50% + 20px)) rotate(357deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
