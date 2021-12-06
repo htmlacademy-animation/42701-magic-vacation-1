@@ -202,6 +202,12 @@
     width: 1rem;
     height: 2rem;
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 266ms ease 100ms;
+
+    .active & {
+      opacity: 1;
+    }
 
     @media (min-width: $stop-scaling) {
       width: 10px;
@@ -242,6 +248,24 @@
   &.swiper-button-disabled {
     opacity: 0.5;
     pointer-events: none;
+  }
+
+  &--prev {
+    transform:  translateX(-50px)rotate(-90deg);
+    transition: transform 366ms ease-out;
+
+    .active & {
+      transform: none;
+    }
+  }
+
+  &--next {
+    transform: translateX(50px) rotate(90deg);
+    transition: transform 366ms ease-out;
+
+    .active & {
+      transform: none;
+    }
   }
 }
 
