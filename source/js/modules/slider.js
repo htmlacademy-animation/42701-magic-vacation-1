@@ -3,6 +3,7 @@ import Swiper from "swiper";
 export default () => {
   let storySlider;
   let sliderContainer = document.getElementById(`story`);
+  const headerNav = document.querySelector(`.page-header__nav`);
   sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
 
   const setSlider = function () {
@@ -60,6 +61,12 @@ export default () => {
             } else if (storySlider.activeIndex === 6) {
               sliderContainer.style.backgroundImage = `url("img/slide4.jpg")`;
             }
+
+            headerNav.classList.forEach((className) => {
+              headerNav.classList.toggle(className, !className.includes(`--`));
+            });
+
+            headerNav.classList.add(`page-header__nav--` + (storySlider.activeIndex / 2 + 1));
           },
           resize: () => {
             storySlider.update();

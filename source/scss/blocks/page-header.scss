@@ -304,6 +304,14 @@
         opacity: 1;
         background-color: $c-purple;
       }
+
+      @include on-blue-menu {
+        color: $c-blue;
+
+        &::after {
+          background-color: $c-blue;
+        }
+      }
     }
   }
 }

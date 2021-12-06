@@ -58,3 +58,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin on-blue-menu {
+  .page-header__nav--2 &,
+  .page-header__nav--3 & {
+    @content;
+  }
+}

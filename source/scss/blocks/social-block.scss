@@ -57,6 +57,10 @@
   &:hover {
     color: $c-purple;
 
+    @include on-blue-menu {
+      color: $c-blue;
+    }
+
     &::before {
       width: 112.5%;
       height: 112.5%;
@@ -70,8 +74,16 @@
     color: $c-purple;
     outline: none;
 
+    @include on-blue-menu {
+      color: $c-blue;
+    }
+
     &::before {
       border-color: $c-purple;
+
+      @include on-blue-menu {
+        border-color: $c-blue;
+      }
     }
 
     & + .social-block__list {
@@ -84,11 +96,20 @@
   &:active:focus {
     color: $c-light;
 
+    @include on-blue-menu {
+      color: $c-light;
+    }
+
     &::before {
       width: 100%;
       height: 100%;
       background-color: $c-purple;
       border-color: $c-purple;
+
+      @include on-blue-menu {
+        background-color: $c-blue;
+        border-color: $c-blue;
+      }
     }
   }
 }
@@ -211,6 +232,10 @@
 
   &:hover {
     color: $c-purple;
+
+    @include on-blue-menu {
+      color: $c-blue;
+    }
   }
 
   &:focus {
@@ -218,6 +243,11 @@
     background-color: $c-light;
     border-color: $c-purple;
     outline: none;
+
+    @include on-blue-menu {
+      color: $c-blue;
+      border-color: $c-blue;
+    }
   }
 
   &:active,
@@ -225,6 +255,10 @@
     color: $c-purple;
     background-color: $c-light;
     border-color: $c-light;
+
+    @include on-blue-menu {
+      color: $c-blue;
+    }
   }
 
   svg {
