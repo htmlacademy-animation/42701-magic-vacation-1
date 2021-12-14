@@ -10,6 +10,7 @@ import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import animTextAppearance from './modules/anim-text-appearance';
+import svgStrokeFill from "./modules/svg-stroke-fill";
 
 // init modules
 pageInit();
@@ -23,6 +24,7 @@ form();
 social();
 
 animTextAppearance();
+svgStrokeFill();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
