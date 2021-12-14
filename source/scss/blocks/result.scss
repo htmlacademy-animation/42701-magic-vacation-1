@@ -396,11 +396,6 @@
     width: 66.5rem;
     height: 11.3rem;
 
-    svg path {
-      transition: all .3s ease;
-      transform: translateY(-100%);
-    }
-
     @media (min-width: $stop-scaling) {
       margin-top: 95px;
       width: 665px;
