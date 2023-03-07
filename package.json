@@ -1,6 +1,6 @@
 {
   "name": "magic-vacation",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "Личный проект «Таинственный отпуск» от HTML Academy",
   "devDependencies": {
     "@htmlacademy/editorconfig-cli": "1.x",
